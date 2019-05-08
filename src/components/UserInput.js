@@ -20,13 +20,16 @@ class UserInput extends Component {
       // console log doesn't appear - is this because this is a synthetic event rendered by React-DOM?
     console.log('something happening here')
   }
+  handleChange(e, props) {
+    props.setState({userInputValue: e.target.value});
+  }
   
   render(props) {
   return (
     <React.Fragment>
         <label htmlFor="userName">Enter Github User Name:
         </label>
-      <input type="text" name="userName" placeholder="Your Github user name here" />
+      <input type="text" name="userName" value={props.state.userInputValue} onChange={() => this.handleChange} placeholder="Your Github user name here" />
       <Button onClick={() => this.handleClick} value="Click meee" className="input__button"/>
     </React.Fragment>
   )
