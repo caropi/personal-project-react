@@ -2,21 +2,27 @@ import React from 'react';
 import './App.css';
 import Login from './components/Login.js';
 import Headband from './components/Headband.js';
+// I could have setLoggedIn function that takes in a value in setstate 
+// + setUserInfo and setUserInputValue in the function 
+// login component would be responsible for calling out to login endpoint to see if user is logged in 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loggedIn: false,
-      userInputValue: "",
       userInfo: []
     }
+  }
+  setLoggedIn(loggedIn) {
+    this.setState({loggedIn})
   }
   render() {
     return (
       <div className="App">
         <Headband/>
         <main>
-          <Login/>
+          <Login isLoggedIn={this.state.loggedIn} onLogin={this.setLoggedIn}/>
         </main>
       </div>
     )
