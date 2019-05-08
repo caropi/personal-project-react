@@ -1,22 +1,23 @@
 import React from 'react';
 import './App.css';
-import Login from './modules/Login.js';
-import Headband from './modules/Headband.js';
+import Login from './components/Login.js';
+import Headband from './components/Headband.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loggedIn: false,
-      userName: ''
+      userInputValue: "",
+      userInfo: []
     }
   }
   render() {
     return (
       <div className="App">
         <Headband/>
-        <body>
+        <main>
           <Login/>
-        </body>
+        </main>
       </div>
     )
   }
