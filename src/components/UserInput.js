@@ -9,7 +9,7 @@ class UserInput extends Component {
     }
   }
   logUser(props) {
-    fetch(`https://api.github.com/users/${this.state.UserInputValue}/events`)
+    fetch(`https://api.github.com/users/${this.state.userInputValue}/events`)
     .then(res => res.json())
     .then(res => {
       console.log(res)
@@ -32,7 +32,7 @@ class UserInput extends Component {
         <label htmlFor="userName">Enter Github User Name:
         </label>
       <input type="text" name="userName" value={this.state.userInputValue} onChange={(e) => this.handleChange(e)} placeholder="Your Github user name here" />
-      <button onClick={() => {this.props.onSubmit(); this.logUser(this.state.userInputValue)}} value="Click meee" className="input__button">Click</button>
+      <button onClick={() => {this.props.onSubmit(); this.logUser(this.state.userInputValue)}} className="input__button">Click</button>
     </React.Fragment>
   )
 
