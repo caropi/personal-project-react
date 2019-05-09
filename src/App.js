@@ -11,18 +11,23 @@ class App extends React.Component {
     super(props);
     this.state = {
       loggedIn: false,
-      userInfo: []
+      userInfo: [],
+      error: ''
     }
   }
-  setLoggedIn(loggedIn) {
+  setLoggedIn = (loggedIn = true) => {
     this.setState({loggedIn})
+  }
+
+  setErrorMessage = (err) => {
+    this.setState({error: err})
   }
   render() {
     return (
       <div className="App">
         <Headband/>
         <main>
-          <Login isLoggedIn={this.state.loggedIn} onLogin={this.setLoggedIn}/>
+          <Login isLoggedIn={this.state.loggedIn} onLogin={this.setLoggedIn} error={this.state.error} setErrorMsg={this.setErrorMessage}/>
         </main>
       </div>
     )

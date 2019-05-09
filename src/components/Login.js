@@ -8,7 +8,7 @@ class Login extends Component {
             <h3>Log Into your Github Account</h3>
             {this.props.isLoggedIn && "you're logged in"}
             <div className="input">
-                <UserInput onSubmit={this.props.onLogin}/>
+                <UserInput onSubmit={this.props.onLogin} error={this.props.error} setErrorMsg={this.props.setErrorMessage}/>
             </div>
             </div>
         )
