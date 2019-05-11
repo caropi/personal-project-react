@@ -1,7 +1,6 @@
 import React from 'react';
 
 const UserInput = (props) => { 
-  console.log(props)
   return (
     <>
         <label htmlFor="userName">Enter Github User Name:
