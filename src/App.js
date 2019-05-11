@@ -9,7 +9,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       loggedIn: false,
-      userInfo: [],
       error: ''
     }
   }
@@ -21,10 +20,9 @@ class App extends React.Component {
     this.setState({error: err})
   }
   render() {
-    console.log(this.state)
     return (
       <div className="App">
-        <Headband/>
+        <Headband loggedIn={this.state.loggedIn}/>
         <main>
           <Display 
             isLoggedIn={this.state.loggedIn} 

@@ -15,7 +15,9 @@ class Display extends Component {
               .then(res => res.json())
               .then(res => {
                   const githubRes = res;
-                  this.setState.userInfo = githubRes
+                  this.setState({
+                    userInfo: githubRes
+                  })
               })
               .catch(err => {
                   this.props.setErrorMsg(err.message)
@@ -29,10 +31,11 @@ class Display extends Component {
               userInputValue: e.target.value
           });
       }
+
     render () {
+        const { userInfo, userInputValue } = this.state
         return (
-            <>
-            {this.props.isLoggedIn === false ? 
+            <>            
                 <div className="login">
                     <h3>Log Into your Github Account</h3>
                     {this.props.isLoggedIn && "you're logged in"}
@@ -40,17 +43,17 @@ class Display extends Component {
                         <UserInput 
                             onSubmit={this.props.onLogin} 
                             error={this.props.error} 
-                            value={this.state.userInputValue}
+                            value={userInputValue}
                             onChange={this.handleChange}
                             onClick = {this.logUser}
                         />
                     </div>
                 </div>
-                :
                 <div className="display__user">
-                    <Profile userData={this.state.userInfo}/>
+                {userInfo.length > 0 && 
+                    <Profile userData={userInfo}/>         
+                }
                 </div>
-            }
             </>
         )
     }
