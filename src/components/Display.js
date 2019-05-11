@@ -32,7 +32,7 @@ class Display extends Component {
     render () {
         return (
             <>
-            {!this.props.isLoggedIn ? 
+            {this.props.isLoggedIn === false ? 
                 <div className="login">
                     <h3>Log Into your Github Account</h3>
                     {this.props.isLoggedIn && "you're logged in"}

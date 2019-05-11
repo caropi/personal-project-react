@@ -21,6 +21,7 @@ class App extends React.Component {
     this.setState({error: err})
   }
   render() {
+    console.log(this.state)
     return (
       <div className="App">
         <Headband/>

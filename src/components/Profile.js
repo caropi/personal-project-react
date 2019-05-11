@@ -1,13 +1,15 @@
 import React from 'react'
 
 
-const Profile = (props) => {
-    // const arrayData = props.userInfo.map(data => console.log(data))
-    console.log(props)
+const Profile = (props) => {  
+//    componentDidUpdate(prevProps, prevState) {
+//      props.
+//    }
+   
   return (
     <div>
       <ul>
-
+      <li>testing this</li>
       </ul>
     </div>
   )
