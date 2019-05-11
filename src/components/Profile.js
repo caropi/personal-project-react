@@ -1,22 +1,12 @@
 import React, { Component } from 'react'
 
 export default class Profile extends Component {
-    // constructor (props) {
-    //     super(props)
-    //     this.state = {
-    //         profileInfo: []
-    //     }
-    // }
-    
-    componentDidUpdate(props) {
-        console.log(props);
-    }
     render(props) {
-        console.log(props);
+        console.log(this.props.userData[0].actor.avatar_url);
         return (
           <div>
           testing
-            {/* <img src={this.state.profileInfo.actor.avatar_url} alt=""/> */}
+            <img src={this.props.userData[0].actor.avatar_url} alt=""/>
           </div>
         )
     }
