@@ -43,16 +43,18 @@ class Display extends Component {
                         <Profile userData={userInfo}/>         
                     </div>
                     }
-                    <h3>Log Into your Github Account</h3>
-                    <div className="display__login--input">
-                        <UserInput 
-                            isLoggedIn={this.state.isloggedIn} 
-                            onSubmit={this.props.onLogin} 
-                            error={this.props.error} 
-                            value={userInputValue}
-                            onChange={this.handleChange}
-                            onClick = {this.logUser}
-                        />
+                    <div className="display__login--container">
+                        <h3>Log Into Github Account</h3>
+                        <div className="display__login--input">
+                            <UserInput 
+                                isLoggedIn={this.state.isloggedIn} 
+                                onSubmit={this.props.onLogin} 
+                                error={this.props.error} 
+                                value={userInputValue}
+                                onChange={this.handleChange}
+                                onClick = {this.logUser}
+                            />
+                        </div>
                     </div>
 
                 </div>

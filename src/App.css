@@ -1,3 +1,9 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -94,6 +100,7 @@ ul {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0;
 }
 
 .display__results ul li {
@@ -106,6 +113,7 @@ ul {
   margin-bottom: 3%;
   text-align: left;
   transition: 0.3s all ease-in-out;
+  position: relative;
 }
 
 .display__results ul li:hover {
@@ -117,11 +125,19 @@ ul {
 .display__results h4 {
   margin: 0;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: fit-content;
+  padding: 0 0 7% 0;
+}
 
+.display__results h4 .eventType {
+  flex: 2;
 }
 
 .display__results h4 svg {
-  margin-right: 12px;
+  margin-right: 5px;
+  margin-top: 2.5%;
 }
 
 .status,
@@ -131,6 +147,10 @@ ul {
   padding: 2%;
   border-radius: 7px;
   text-transform: uppercase;
+  box-sizing: border-box;
+  width: fit-content;
+  position: absolute;
+  right: 5%;
 }
 
 .status__opened {

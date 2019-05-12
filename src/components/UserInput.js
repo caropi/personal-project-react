@@ -3,7 +3,7 @@ import React from 'react';
 const UserInput = (props) => {
   return (
     <>
-        <label htmlFor="userName">Enter Github User Name:
+        <label htmlFor="userName">Enter Github User Name
         </label>
       <input 
         type="text" 
