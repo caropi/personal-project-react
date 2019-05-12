@@ -33,6 +33,7 @@ class Display extends Component {
       }
 
     render (props) {
+        console.log(this.props)
         const { userInfo, userInputValue } = this.state
         return (
             <div className="display">            
