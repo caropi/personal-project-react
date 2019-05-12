@@ -1,7 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import UserInput from "./UserInput.js"
 import Profile from "./Profile.js"
 import UserEvents from "./UserEvents.js"
+import { setLoggedIn, setLoggedOut, setErrorMessage } from '../store/store.js';
+
 class Display extends Component {
       constructor(props) {
           super(props);
@@ -10,7 +14,6 @@ class Display extends Component {
               userInfo: [],
           }
       }
-
       logUser = (props) => {
           fetch(`https://api.github.com/users/${this.state.userInputValue}/events?limit=1000`)
               .then(res => res.json())
@@ -24,14 +27,11 @@ class Display extends Component {
                   this.props.setErrorMsg(err.message)
               })
       }
-
-      // connect these through state
       handleChange = (e) => {
           this.setState({
               userInputValue: e.target.value
           });
       }
-
     render (props) {
         const { userInfo, userInputValue } = this.state
         return (
@@ -68,4 +68,15 @@ class Display extends Component {
     }
 }
 
-export default Display;
+const mapStateToProps = (state) => ({
+    loggedIn: state.loggedIn,
+    error: state.error
+})
+
+const mapDispatchToProps = {
+    setLoggedIn,
+    setLoggedOut,
+    setErrorMessage
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Display);
