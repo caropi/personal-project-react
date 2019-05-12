@@ -8,7 +8,6 @@ class Display extends Component {
           this.state = {
               userInputValue: "",
               userInfo: [],
-              existingUser: true
           }
       }
 
@@ -46,6 +45,7 @@ class Display extends Component {
                     <div className="display__login--container">
                         <h3>Log Into Github Account</h3>
                         <div className="display__login--input">
+                        
                             <UserInput 
                                 isLoggedIn={this.state.isloggedIn} 
                                 onSubmit={this.props.onLogin} 
@@ -54,6 +54,7 @@ class Display extends Component {
                                 onChange={this.handleChange}
                                 onClick = {this.logUser}
                             />
+
                         </div>
                     </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const UserInput = (props) => {
+  console.log(props);
   return (
     <>
         <label htmlFor="userName">Enter Github User Name
@@ -12,6 +13,7 @@ const UserInput = (props) => {
         onChange={(e) => props.onChange(e)} 
         placeholder="Your Github user name here" />
       <button onClick={() => {props.onSubmit(); props.onClick(props.userInputValue)}} className="input__button">Login</button>
+      {}
     </>
   )
 }
