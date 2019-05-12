@@ -32,6 +32,7 @@
   align-items: center;
   justify-content: center;
   width: 80%;
+  max-width: 939px;
   margin: 0 auto;
 }
 
@@ -62,11 +63,32 @@ ul {
 .display {
   display: flex;
   flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .display__login {
   flex: 1;
   padding: 3%;
+}
+
+label {
+  font-size: 10px;
+  display: block;
+  text-align: left;
+}
+
+input {
+  display: block;
+  max-width: 352px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border: 3px solid black;
+  background: white;
+  padding: 3%;
+  border-radius: 10px;
+  max-height: 25px;
 }
 
 .display__user--profile {
@@ -151,6 +173,28 @@ ul {
   width: fit-content;
   position: absolute;
   right: 5%;
+  letter-spacing: 0.05em;
+}
+
+.input__button {
+  color: white;
+  text-transform: uppercase;
+  padding: 2%;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  margin-top: 2%;
+  max-width: 352px;
+  width: 100%;
+  transition: 0.3s all ease-in-out;
+  border: 1px solid black;
+}
+
+.input__button:hover {
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(148, 148, 148, 1);
+  -moz-box-shadow: 7px 7px 0px 0px rgba(148, 148, 148, 1);
+  box-shadow: 7px 7px 0px 0px rgba(148, 148, 148, 1);
 }
 
 .status__opened {
@@ -161,7 +205,8 @@ ul {
   background: #ED4337;
 }
 
-.status {
+.status,
+.input__button {
   background: #000;
 }
 

@@ -11,21 +11,11 @@ export default class UserEvents extends Component {
     }
   }
   render(props) {
-    console.log(this.props.userData)
     return (
-      <>
-      {/* <button>
-        <img src="/assets/pr.png" className="button-img" alt=""/>
-        Pull Request
-      </button>
-      <button>
-        <img src="/assets/fork.png" className="button-img" alt=""/>
-        Forked Repos
-      </button> */}
       <ul>
         {this.props.userData
         .filter(events => {
-          return (events.payload.action === 'closed' || events.payload.action === 'opened')
+          return ((events.type === 'PullRequestEvent') && (events.payload.action === 'closed' || events.payload.action === 'opened'))
         })
         .map((data, i) => {
           return <li key={data.id}>
@@ -35,8 +25,7 @@ export default class UserEvents extends Component {
               <span className={this.handleStatus(data.payload.action)}>{data.payload.action}</span>
             </h4>
             <a href={`https://github.com/${data.repo.name}`} className="repo-link">{data.repo.name}</a>
-            {/* TODO: FIX MESSAGE PROBLEM */}
-            {/* <p>{data.payload.commits[0].message}</p> */}
+            <p>{data.payload.pull_request.title}</p>
           </li>
         })} 
         {this.props.userData
@@ -52,7 +41,6 @@ export default class UserEvents extends Component {
           </li>
         })} 
       </ul>
-      </>
     )
   }
 }
