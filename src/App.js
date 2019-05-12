@@ -22,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Headband loggedIn={this.state.loggedIn}/>
+        <Headband/>
         <main>
           <Display 
             isLoggedIn={this.state.loggedIn} 

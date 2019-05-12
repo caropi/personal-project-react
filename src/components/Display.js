@@ -7,12 +7,13 @@ class Display extends Component {
           super(props);
           this.state = {
               userInputValue: "",
-              userInfo: []
+              userInfo: [],
+              existingUser: true
           }
       }
 
       logUser = (props) => {
-          fetch(`https://api.github.com/users/${this.state.userInputValue}/events`)
+          fetch(`https://api.github.com/users/${this.state.userInputValue}/events?limit=1000`)
               .then(res => res.json())
               .then(res => {
                   const githubRes = res;
@@ -37,9 +38,15 @@ class Display extends Component {
         return (
             <div className="display">            
                 <div className="display__login">
+                    {userInfo.length > 0 && 
+                    <div className="display__user">
+                        <Profile userData={userInfo}/>         
+                    </div>
+                    }
                     <h3>Log Into your Github Account</h3>
                     <div className="display__login--input">
                         <UserInput 
+                            isLoggedIn={this.state.isloggedIn} 
                             onSubmit={this.props.onLogin} 
                             error={this.props.error} 
                             value={userInputValue}
@@ -47,17 +54,13 @@ class Display extends Component {
                             onClick = {this.logUser}
                         />
                     </div>
-                    <div className="display__user">
-                    {userInfo.length > 0 && 
-                        <Profile userData={userInfo}/>         
-                    }
+
+                </div>
+                {userInfo.length > 0 &&
+                    <div className="display__results">
+                            <UserEvents userData={userInfo}/>
                     </div>
-                </div>
-                <div className="display__results">
-                    {userInfo.length > 0 &&
-                        <UserEvents userData={userInfo}/>
-                    }
-                </div>
+                }
             </div>
         )
     }
