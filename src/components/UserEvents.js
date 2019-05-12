@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card.js';
 
 export default class UserEvents extends Component {
+  // handles local logic of changing className based on whether a status is opened or closed
   handleStatus(status) {
     if (status === 'opened') {
       return 'status__opened'

@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    switch() {
+    switch(action.type) {
         case "THISNEEDSTOBEUPPERCASE":
             break;
         case "ALSONEEDSTOBECAPS":
@@ -13,3 +13,5 @@ const reducer = (state = initialState, action) => {
     }
     return state;
 }
+
+export default reducer

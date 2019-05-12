@@ -2,42 +2,22 @@ import React from 'react';
 import './App.css';
 import Display from './components/Display.js';
 import Headband from './components/Headband.js';
+import { Provider } from 'react-redux';
+import store from './store/store.js';
+
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loggedIn: false,
-      error: ''
-    }
-  }
-  setLoggedIn = (loggedIn = true) => {
-    this.setState({loggedIn})
-  }
-
-  setLoggedOut = ({loggedIn = false}) => {
-    this.setState({loggedIn})
-
-  }
-
-  setErrorMessage = (err) => {
-    this.setState({error: err})
-  }
-
   render() {
     return (
-      <div className="App">
-        <Headband/>
-        <main>
-          <Display 
-            onLogout={this.setLoggedOut}
-            isLoggedIn={this.state.loggedIn} 
-            onLogin={this.setLoggedIn} 
-            error={this.state.error} 
-            setErrorMsg={this.setErrorMessage}
-          />
-        </main>
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Headband/>
+          <main>
+            <Display 
+            />
+          </main>
+        </div>
+      </Provider>
     )
   }
 }
