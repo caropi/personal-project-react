@@ -40,6 +40,13 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #000;
+  font-size: 40px;
+}
+
+@media(max-width: 939px) {
+  .logo h1 {
+    font-size: 4vw;
+  }
 }
 
 .logo__image {
