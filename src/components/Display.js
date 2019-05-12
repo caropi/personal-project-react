@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UserInput from "./UserInput.js"
 import Profile from "./Profile.js"
+import UserEvents from "./UserEvents.js"
 class Display extends Component {
       constructor(props) {
           super(props);
@@ -24,7 +25,6 @@ class Display extends Component {
               })
       }
 
-
       // connect these through state
       handleChange = (e) => {
           this.setState({
@@ -35,11 +35,10 @@ class Display extends Component {
     render () {
         const { userInfo, userInputValue } = this.state
         return (
-            <>            
-                <div className="login">
+            <div className="display">            
+                <div className="display__login">
                     <h3>Log Into your Github Account</h3>
-                    {this.props.isLoggedIn && "you're logged in"}
-                    <div className="input">
+                    <div className="display__login--input">
                         <UserInput 
                             onSubmit={this.props.onLogin} 
                             error={this.props.error} 
@@ -48,13 +47,18 @@ class Display extends Component {
                             onClick = {this.logUser}
                         />
                     </div>
+                    <div className="display__user">
+                    {userInfo.length > 0 && 
+                        <Profile userData={userInfo}/>         
+                    }
+                    </div>
                 </div>
-                <div className="display__user">
-                {userInfo.length > 0 && 
-                    <Profile userData={userInfo}/>         
-                }
+                <div className="display__results">
+                    {userInfo.length > 0 &&
+                        <UserEvents userData={userInfo}/>
+                    }
                 </div>
-            </>
+            </div>
         )
     }
 }
