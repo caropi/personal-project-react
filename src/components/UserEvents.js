@@ -31,7 +31,7 @@ export default class UserEvents extends Component {
               <span className="eventType">{data.type}</span>
               <span className={this.handleStatus(data.payload.action)}>{data.payload.action}</span>
             </h4>
-            <a href={data.repo.url} className="repo-link">{data.repo.name}</a>
+            <a href={`https://github.com/${data.repo.name}`} className="repo-link">{data.repo.name}</a>
           </li>
         })}
       </ul>
