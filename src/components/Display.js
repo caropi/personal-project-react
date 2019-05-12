@@ -45,7 +45,7 @@ class Display extends Component {
                     }
                     {this.props.isLoggedIn ? <button className="input__button" onClick={() => this.props.onLogout()}>Logout</button> : 
                     <div className="display__login--container">
-                        <h3>Log Into Github Account</h3>
+                        <h2>Log Into Github Account</h2>
                         <div className="display__login--input">
                             <UserInput 
                                 isLoggedIn={this.state.isloggedIn} 
