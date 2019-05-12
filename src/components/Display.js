@@ -32,20 +32,21 @@ class Display extends Component {
           });
       }
 
-    render () {
+    render (props) {
+        console.log(this.props)
         const { userInfo, userInputValue } = this.state
         return (
             <div className="display">            
                 <div className="display__login">
-                    {userInfo.length > 0 && 
+                    {(userInfo.length > 0 && this.props.isLoggedIn) && 
                     <div className="display__user">
                         <Profile userData={userInfo}/>         
                     </div>
                     }
+                    {this.props.isLoggedIn ? <button className="input__button" onClick={() => this.props.onLogout()}>Logout</button> : 
                     <div className="display__login--container">
                         <h3>Log Into Github Account</h3>
                         <div className="display__login--input">
-                        
                             <UserInput 
                                 isLoggedIn={this.state.isloggedIn} 
                                 onSubmit={this.props.onLogin} 
@@ -54,12 +55,11 @@ class Display extends Component {
                                 onChange={this.handleChange}
                                 onClick = {this.logUser}
                             />
-
                         </div>
                     </div>
-
+                    }
                 </div>
-                {userInfo.length > 0 &&
+                {(userInfo.length > 0 && this.props.isLoggedIn) &&
                     <div className="display__results">
                             <UserEvents userData={userInfo}/>
                     </div>

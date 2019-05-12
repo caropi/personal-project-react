@@ -16,15 +16,21 @@ class App extends React.Component {
     this.setState({loggedIn})
   }
 
+  setLoggedOut = (loggedIn = false) => {
+    this.setState({loggedIn})
+  }
+
   setErrorMessage = (err) => {
     this.setState({error: err})
   }
+
   render() {
     return (
       <div className="App">
         <Headband/>
         <main>
           <Display 
+            onLogout={this.setLoggedOut}
             isLoggedIn={this.state.loggedIn} 
             onLogin={this.setLoggedIn} 
             error={this.state.error} 
