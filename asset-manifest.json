@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/personal-project-react/static/css/main.a6dfbadf.chunk.css",
+    "main.js": "/personal-project-react/static/js/main.49790b14.chunk.js",
+    "main.js.map": "/personal-project-react/static/js/main.49790b14.chunk.js.map",
+    "runtime~main.js": "/personal-project-react/static/js/runtime~main.41e8ac32.js",
+    "runtime~main.js.map": "/personal-project-react/static/js/runtime~main.41e8ac32.js.map",
+    "static/js/2.3a6f0167.chunk.js": "/personal-project-react/static/js/2.3a6f0167.chunk.js",
+    "static/js/2.3a6f0167.chunk.js.map": "/personal-project-react/static/js/2.3a6f0167.chunk.js.map",
+    "index.html": "/personal-project-react/index.html",
+    "precache-manifest.d82d75936303b91637e4108ad99652b4.js": "/personal-project-react/precache-manifest.d82d75936303b91637e4108ad99652b4.js",
+    "service-worker.js": "/personal-project-react/service-worker.js",
+    "static/css/main.a6dfbadf.chunk.css.map": "/personal-project-react/static/css/main.a6dfbadf.chunk.css.map"
+  }
+}
