@@ -36,19 +36,18 @@ class Display extends Component {
         return (
             <div className="display">            
                 <div className="display__login">
-                    {(userInfo.length > 0 && this.props.isLoggedIn) && 
+                    {(userInfo.length > 0 && this.props.loggedIn) && 
                     <div className="display__user">
                         <Profile userData={userInfo}/>         
                     </div>
                     }
-                    {this.props.isLoggedIn ? 
-                    <button className="input__button" onClick={() => props.setLoggedOut()}>Logout</button> :
+                    {this.props.loggedIn ? 
+                    <button className="input__button" onClick={() => {this.props.setLoggedOut()}}>Logout</button> :
                     <div className="display__login--container">
                         <h2>Log Into Github Account</h2>
                         <div className="display__login--input">
                             <UserInput 
                                 isLoggedIn={this.props.isloggedIn} 
-                                // onSubmit={this.props.onLogin} 
                                 error={this.props.error} 
                                 value={userInputValue}
                                 onChange={this.handleChange}
@@ -58,7 +57,7 @@ class Display extends Component {
                     </div>
                     }
                 </div>
-                {(userInfo.length > 0 && this.props.isLoggedIn) &&
+                {(userInfo.length > 0 && this.props.loggedIn) &&
                     <div className="display__results">
                             <UserEvents userData={userInfo}/>
                     </div>

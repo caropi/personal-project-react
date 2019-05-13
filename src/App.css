@@ -16,7 +16,7 @@
 
 .App-header {
   background-color: #356D65;
-  height: 20vh;
+  height: 120px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,8 +49,18 @@
   }
 }
 
+@media(max-width: 640px) {
+  .logo {
+    width: 90%;
+  }
+
+  .logo h1 {
+    font-size: 6vw;
+  }
+}
+
 .logo__image {
-  width: 8%;
+  width: 75px;
   margin-right: 3vw;
   border-radius: 50%;
   background: #F1CBB5;
