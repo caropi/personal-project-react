@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setLoggedIn } from '../store/actions.js';
+import { setLoggedIn, handleChange, logUser } from '../store/actions.js';
 
 
 const UserInput = (props) => {
+  const onSubmit = () => {
+    props.logUser(props.userInputValue)
+  }
   return (
       <> 
         <label htmlFor="userName">
@@ -13,18 +16,21 @@ const UserInput = (props) => {
           type="text" 
           name="userName" 
           value={props.value} 
-          onChange={(e) => props.onChange(e)} 
+          onChange={(e) => props.handleChange(e)} 
           placeholder="Your Github user name here" />
-        <button onClick={() => {props.setLoggedIn(); props.onClick(props.userInputValue)}} className="input__button">Login</button>
+        <button onClick={() => {props.setLoggedIn(); onSubmit()}} className="input__button">Login</button>
       </>
   )
 }
 const mapStateToProps = (state) => ({
   loggedIn: state.loggedIn,
+  userInputValue: state.userInputValue
 })
 
 const mapDispatchToProps = {
-  setLoggedIn
+  setLoggedIn,
+  handleChange,
+  logUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserInput);
