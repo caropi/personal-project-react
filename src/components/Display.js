@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import UserInput from "./UserInput.js"
 import Profile from "./Profile.js"
 import UserEvents from "./UserEvents.js"
-import { setLoggedIn, setLoggedOut, setErrorMessage } from '../store/store.js';
+import { setLoggedOut, setErrorMessage } from '../store/actions.js';
 
 class Display extends Component {
       constructor(props) {
@@ -24,7 +23,7 @@ class Display extends Component {
                   })
               })
               .catch(err => {
-                  this.props.setErrorMsg(err.message)
+                  props.setErrorMessage(err)
               })
       }
       handleChange = (e) => {
@@ -42,13 +41,14 @@ class Display extends Component {
                         <Profile userData={userInfo}/>         
                     </div>
                     }
-                    {this.props.isLoggedIn ? <button className="input__button" onClick={() => this.props.onLogout()}>Logout</button> : 
+                    {this.props.isLoggedIn ? 
+                    <button className="input__button" onClick={() => props.setLoggedOut()}>Logout</button> :
                     <div className="display__login--container">
                         <h2>Log Into Github Account</h2>
                         <div className="display__login--input">
                             <UserInput 
-                                isLoggedIn={this.state.isloggedIn} 
-                                onSubmit={this.props.onLogin} 
+                                isLoggedIn={this.props.isloggedIn} 
+                                // onSubmit={this.props.onLogin} 
                                 error={this.props.error} 
                                 value={userInputValue}
                                 onChange={this.handleChange}
@@ -74,7 +74,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    setLoggedIn,
     setLoggedOut,
     setErrorMessage
 }

@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setLoggedIn } from '../store/actions.js';
+
 
 const UserInput = (props) => {
   return (
@@ -12,8 +15,16 @@ const UserInput = (props) => {
           value={props.value} 
           onChange={(e) => props.onChange(e)} 
           placeholder="Your Github user name here" />
-        <button onClick={() => {props.onSubmit(); props.onClick(props.userInputValue)}} className="input__button">Login</button>
+        <button onClick={() => {props.setLoggedIn(); props.onClick(props.userInputValue)}} className="input__button">Login</button>
       </>
   )
 }
-export default UserInput;
+const mapStateToProps = (state) => ({
+  loggedIn: state.loggedIn,
+})
+
+const mapDispatchToProps = {
+  setLoggedIn
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInput);
